@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="main">
     <Preview/>
   </div>
-
-  <div class=container>
+  <div>
+    <h2>Репродукции</h2>
+  </div>
+  <div class="view_card">
     <CardComponent v-for="(card, index ) in cards" :key="index" :cards="card" />
   </div>
 
@@ -26,7 +28,22 @@ import Preview from '../components/general/SectionPreview.vue'
     }
 </script>
 <style scoped>
-    .container{
+@import '../assets/main.css';
+  .main {
+    display: flex;
+    margin: 0 auto;
+    max-width: calc(1440px - 340px);
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  h2{
+    font-size: 23pt;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+    .view_card{
         display: flex;
         justify-content: space-between;
       flex-wrap: wrap;

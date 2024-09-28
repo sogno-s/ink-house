@@ -12,12 +12,7 @@ import MainPage from './components/MainPage.vue'
   
   <main class="main">
     <section>
-      
-    </section>
-    <section>
       <MainPage/>
-      </section>
-      <section>
       </section>
       </main>
   <RouterView />
