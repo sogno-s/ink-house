@@ -1,4 +1,5 @@
 <script setup>
+// eslint-disable-next-line no-unused-vars
 import { RouterLink, RouterView } from 'vue-router'
 import HeaderComponent from './components/HeaderComponent.vue'
 import MainPage from './components/MainPage.vue'
@@ -13,8 +14,6 @@ import MainPage from './components/MainPage.vue'
     <section>
       <MainPage/>
       </section>
-      <section>
-      </section>
       </main>
   <RouterView />
 </template>
@@ -23,17 +22,13 @@ import MainPage from './components/MainPage.vue'
 @import './assets/main.css';
 
   .header{
-    padding: 0px 165px 0px 165px;
+    padding: 25px 165px 0px 165px;
     max-width: 1280px;
-    height: 100px;
+    height: 5rem;
     margin: 0 auto;
     background: #E1EDE6;
-    display: flex;
-    justify-content: space-beetwen; 
-    gap: 450px;
-    align-items: center;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .main{

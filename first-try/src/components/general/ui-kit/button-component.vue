@@ -1,15 +1,11 @@
 <template>
-  <div class="btn">
+
     <button>В корзину</button>
-  </div>
+
 </template>
 
 <style scoped>
-.btn {
-  width: 310px;
-  height: 65px;
-  align-self: center;
-}
+
 button {
   color: #598D66;
   width: 100%;

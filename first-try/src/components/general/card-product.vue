@@ -53,19 +53,16 @@ export default {
 
 <style scoped>
 .container {
-  width: 350px;
-  height: 730px;
+  width: 25rem;
   display: flex;
   flex-direction: column;
   padding: 20px 0px 20px 0px;
-  gap: 5px;
   background: #E1EDE6;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .img {
-  width: 310px;
-  height: 422px;
+  width: 20em;
   align-self: center;
 }
 
@@ -75,7 +72,7 @@ img {
 }
 
 .text {
-  margin-left: 20px;
+  margin-left: 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -99,7 +96,7 @@ h3 {
 }
 
 .btn {
-  width: 310px;
+  width: calc( 23rem - 2.5rem);
   height: 65px;
   align-self: center;
 }
