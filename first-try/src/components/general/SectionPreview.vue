@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-    import ButtonComponent from './ui-kit/button-component.vue'
+    import ButtonComponent from './ui-kit/ButtonComponent.vue'
 </script>
 
 <style scoped>

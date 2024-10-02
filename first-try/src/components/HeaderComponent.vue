@@ -1,12 +1,12 @@
 <template>
     <div class="container">
         <h3 class="title">Ink. House</h3>
-        <ul class="nav">
-            <li><a>Репродукции</a></li>
-            <li><a>Новинки</a></li>
-            <li><a>О нас</a></li>
-            <li ><a>Корзина</a></li>
-        </ul>
+        <nav class="nav">
+            <a class="nav-item">Репродукции</a>
+            <a>Новинки</a>
+            <a>О нас</a>
+            <a>Корзина</a>
+        </nav>
     </div>
 </template>
 
@@ -16,7 +16,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
     .container{
         display: flex;
@@ -30,8 +30,12 @@
     }
     .nav{
         display: flex;
+
+      &-item {
+
+      }
     }
-    .nav li{
+    .nav a{
       list-style: none;
         margin: 0 1rem; 
     }

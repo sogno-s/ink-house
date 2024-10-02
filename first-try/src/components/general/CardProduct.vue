@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="img">
-      <img alt="картина" :src="imgSource">
+      <img :alt="title" :src="imgSource">
     </div>
     <div class="text">
       <p>{{ author }}</p>
@@ -15,45 +15,31 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import ButtonComponent from "./ui-kit/ButtonComponent.vue";
+import {computed} from "vue";
 
-import ButtonComponent from "../general/ui-kit/button-component.vue";
-export default {
-  name: 'CardComponent',
-  components: {ButtonComponent},
-  props: {
-    cards: {
-      type: Object,
-      required: true
-    }
-  },
-  computed: {
-    img() {
-      return this.cards.img
-    },
-    imgSource(){
-      // eslint-disable-next-line no-undef
-      return `/img/${this.img}`
-    },
-    author() {
-      return this.cards.author
-    },
-    title() {
-      return this.cards.title
-    },
-    description() {
-      return this.cards.description
-    },
-    price() {
-      return this.cards.price
-    }
+const props = defineProps({
+  cards: {
+    type: Object,
+    required: true
   }
-}
+})
+
+const img = computed(() => props.cards.img)
+const imgSource = computed(() => `/img/${img.value}`)
+const author = computed(() => props.cards.author);
+const title = computed(() => props.cards.title);
+const description = computed(() => props.cards.description);
+const price = computed(() => props.cards.price);
+
+
 </script>
+
 
 <style scoped>
 .container {
-  width: 25rem;
+  width: 25em;
   display: flex;
   flex-direction: column;
   padding: 20px 0px 20px 0px;
@@ -109,5 +95,7 @@ button {
   border: 1px solid #598D66;
   background: transparent;
 }
+
+
 </style>
 
