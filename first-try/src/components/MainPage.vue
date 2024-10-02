@@ -11,7 +11,9 @@
   <section class="container">
     <CardComponent v-for="card in cardsRef" :key="card.id" :cards="card" />
   </section>
-
+  <section>
+    <InfoComponent/>
+  </section>
 </template>
 <script setup>
 import CardComponent from './general/CardProduct.vue'
@@ -20,7 +22,7 @@ import {cards} from "../components/general/card-data.js";
 import FilterSearchComponent from "../components/general/ui-kit/FilterSearchComponent.vue";
 import  {ref} from 'vue'
 import {countries} from "../components/general/ui-kit/filter-data.js";
-
+import InfoComponent from "../components/general/InfoComponent.vue";
 const countriesGet = ref(countries)
 const cardsRef = ref(cards)
 
