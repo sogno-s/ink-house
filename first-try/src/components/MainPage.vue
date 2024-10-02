@@ -2,12 +2,15 @@
   <div class="main">
     <Preview/>
   </div>
-  <section>
-    <FilterSearchComponent/>
+  <section class="container">
+    <h2>Репродукции</h2>
+    <div class="filter">
+      <FilterSearchComponent v-for="item in countriesGet" :key="item.id" :countries="item" />
+    </div>
   </section>
-  <div class="view_card">
+  <section class="container">
     <CardComponent v-for="card in cardsRef" :key="card.id" :cards="card" />
-  </div>
+  </section>
 
 </template>
 <script setup>
@@ -16,8 +19,12 @@ import Preview from '../components/general/SectionPreview.vue'
 import {cards} from "../components/general/card-data.js";
 import FilterSearchComponent from "../components/general/ui-kit/FilterSearchComponent.vue";
 import  {ref} from 'vue'
+import {countries} from "../components/general/ui-kit/filter-data.js";
 
+const countriesGet = ref(countries)
 const cardsRef = ref(cards)
+
+console.log(countriesGet.value)
 </script>
 <style scoped>
 @import '../assets/main.css';
@@ -30,10 +37,17 @@ const cardsRef = ref(cards)
     margin: 0 auto 1rem;
   }
 
-    .view_card{
-        display: flex;
-        justify-content: space-between;
+  .filter{
+    display: flex;
+    gap: 2rem;
+  }
+
+    .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+
+      margin-bottom: 1em;
     }
 </style>

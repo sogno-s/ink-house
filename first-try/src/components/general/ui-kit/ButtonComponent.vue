@@ -22,11 +22,8 @@ button:active{
   color: #F4F6F5;
   background: #376B44;
 }
-button:focus{
-  color: #598D66;
-  background: #598D66;
-  border: 1px solid #598D66;
-}
+
+
 </style>
 <script setup>
 

@@ -15,7 +15,7 @@ export const cards = [
         description: 'Холст, масло (50х80) ',
         price: '14 500 руб'
     },
-    // ...
+
     {
         id: 3,
         img: 'pic-tree.jpg',
