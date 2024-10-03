@@ -13,7 +13,7 @@ console.log(props)
 
 const countryGet = computed(()=> props.countries.country)
 
-const temp = 'temp'
+// const temp = 'temp'
 
 </script>
 

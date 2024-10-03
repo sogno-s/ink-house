@@ -1,5 +1,5 @@
 <script setup>
-
+import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vue";
 </script>
 
 <template>
@@ -8,13 +8,21 @@
       <h2>Новая коллекция французских авторов</h2>
       <p>Сложно сказать, почему акционеры крупнейших компаний призывают нас к новым свершениям, которые, в свою очередь, должны быть заблокированы в рамках своих собственных рациональных ограничений. </p>
       <p>Принимая во внимание показатели успешности, граница обучения кадров предопределяет высокую востребованность направлений прогрессивного развития.</p>
-      <button>Ознакомиться</button>
+      <div class="btn">
+        <ButtonComponentAdditionally/>
+      </div>
     </div>
    >
   </div>
 </template>
 
-<style scoped>
+  <style scoped>
+  .btn{
+    width: calc( 23rem - 2.5rem);
+    height: 65px;
+    align-self: center;
+
+  }
   .background{
     position: relative;
     display: flex;
@@ -43,14 +51,26 @@
     left: 0;
     width: 50%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Затемнение */
-    z-index: 0; /* Помещаем затемнение над фоном, но под контентом */
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0, .7) 40%,
+        transparent);
+
+    z-index: 0;
   }
   .content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     text-align: left;
     padding: 2rem;
     max-width: 33rem;
-    z-index: 1; /* Помещаем контент над псевдоэлементом */
+    z-index: 1;
     color: #f2f2f2;
+  }
+
+  h2{
+    font-size: 2rem;
+    line-height: 1;
   }
 </style>
