@@ -44,6 +44,7 @@ const price = computed(() => props.cards.price);
   flex-direction: column;
   padding: 20px 0px 20px 0px;
   background: #E1EDE6;
+  gap: 1rem;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -61,7 +62,8 @@ img {
   margin-left: 2.5rem;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  //gap: 7px;
+  align-self: flex-start;
 }
 
 p {

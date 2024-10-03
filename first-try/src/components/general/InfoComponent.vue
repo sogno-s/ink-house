@@ -20,7 +20,7 @@ import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vu
   .btn{
     width: calc( 23rem - 2.5rem);
     height: 65px;
-    align-self: center;
+    align-self: flex-start;
 
   }
   .background{
@@ -29,6 +29,7 @@ import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vu
     align-items: center;
     height: 35rem;
     overflow: hidden;
+    padding-left: 8rem;
   }
   .background::before{
     content: "";
@@ -49,20 +50,20 @@ import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vu
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 60%;
     height: 100%;
     background: linear-gradient(
         to right,
-        rgba(0,0,0, .7) 40%,
+        rgba(0,0,0, .7) 65%,
         transparent);
-
     z-index: 0;
   }
   .content{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    text-align: left;
+    text-align: justify;
+    align-items: flex-end;
     padding: 2rem;
     max-width: 33rem;
     z-index: 1;
