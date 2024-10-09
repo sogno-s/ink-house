@@ -1,11 +1,11 @@
 <template>
-  <div class="main">
+  <section class="main">
     <Preview/>
-  </div>
+  </section>
   <section class="container">
     <h2>Репродукции</h2>
     <div class="filter">
-      <FilterSearchComponent v-for="item in countriesGet" :key="item.id" :countries="item" />
+      <FilterSearchComponent v-for="item in categories" :key="item.id" :countries="item" />
     </div>
   </section>
   <section class="container">
@@ -19,26 +19,36 @@
 <script setup>
 import CardComponent from './general/CardProduct.vue'
 import Preview from '../components/general/SectionPreview.vue'
-// import {cards} from "../components/general/card-data.js";
 import FilterSearchComponent from "../components/general/ui-kit/FilterSearchComponent.vue";
 import  {ref, onMounted} from 'vue'
-import {countries} from "../components/general/ui-kit/filter-data.js";
 import InfoComponent from "../components/general/InfoComponent.vue";
 import axios from "axios";
 import {url} from "../main.js";
-const countriesGet = ref(countries)
+
+
+const categories = ref([]);
+onMounted(async ()=> {
+    await  axios.get(`${url}/products/category`)
+        .then(response=>{
+          categories.value = response.data;
+        })
+        .catch(error => {
+          console.error('Ошибка ', error);
+        })
+})
 
 const products = ref([]);
 onMounted(async ()=>{
-  try{
-    const response = await axios.get(`${url}/products`);
-    products.value = response.data;
-  } catch(error){
-    console.error('Ошибка ', error)
-  }
+  await axios.get(`${url}/products`)
+      .then(response => {
+        products.value = response.data;
+      })
+      .catch(error => {
+        console.error('Ошибка ', error)
+      })
 })
 
-console.log(countriesGet.value)
+
 </script>
 <style scoped>
 @import '../assets/main.css';

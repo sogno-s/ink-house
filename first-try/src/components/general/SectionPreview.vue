@@ -18,6 +18,7 @@
 <style scoped>
     .img{
         width: 25rem;
+      z-index: 1;
     }
     img{
         width: 100%;

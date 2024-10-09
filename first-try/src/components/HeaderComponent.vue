@@ -6,14 +6,27 @@
             <a>Новинки</a>
             <a>О нас</a>
             <a>Корзина</a>
+            <a class="auth" @click="openModal" >Войти</a>
         </nav>
     </div>
+  <AuthModalWindow :isVisible="isModalVisible" @close="closeModal"/>
 </template>
 
-<script>
-    export default {
-    name: 'HeaderComponent'
-    }
+<script setup>
+import {ref} from "vue";
+import AuthModalWindow from "../components/modal/AuthModalWindow.vue";
+
+
+const isModalVisible = ref(false);
+
+const openModal = () =>{
+  isModalVisible.value = true;
+}
+
+const closeModal = () =>{
+  isModalVisible.value = false;
+}
+
 </script>
 
 <style scoped lang="scss">

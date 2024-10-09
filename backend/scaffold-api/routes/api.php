@@ -25,7 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', [\App\Http\Controllers\AuthContr
 Route::middleware('auth:sanctum')->post('/products', [ProductController::class, 'store']);
 Route::middleware('auth::sanctum')->delete('/products/{id}', [ProductController::class, 'destroy']);
 
-Route::middleware('auth:sanctum')->get('/products/category', [\App\Http\Controllers\CategoryController::class, 'addCategory']);
+Route::middleware('auth:sanctum')->post('/products/category', [\App\Http\Controllers\CategoryController::class, 'addCategory']);
 Route::middleware('auth:sanctum')->delete('/product/category/{id}', [\App\Http\Controllers\CategoryController::class, 'destroy']);
 
 
