@@ -9,22 +9,34 @@
     </div>
   </section>
   <section class="container">
-    <CardComponent v-for="card in cardsRef" :key="card.id" :cards="card" />
+    <CardComponent v-for="card in products" :key="card.id" :cards="card" />
   </section>
   <section>
     <InfoComponent/>
   </section>
 </template>
+
 <script setup>
 import CardComponent from './general/CardProduct.vue'
 import Preview from '../components/general/SectionPreview.vue'
-import {cards} from "../components/general/card-data.js";
+// import {cards} from "../components/general/card-data.js";
 import FilterSearchComponent from "../components/general/ui-kit/FilterSearchComponent.vue";
-import  {ref} from 'vue'
+import  {ref, onMounted} from 'vue'
 import {countries} from "../components/general/ui-kit/filter-data.js";
 import InfoComponent from "../components/general/InfoComponent.vue";
+import axios from "axios";
+import {url} from "../main.js";
 const countriesGet = ref(countries)
-const cardsRef = ref(cards)
+
+const products = ref([]);
+onMounted(async ()=>{
+  try{
+    const response = await axios.get(`${url}/products`);
+    products.value = response.data;
+  } catch(error){
+    console.error('Ошибка ', error)
+  }
+})
 
 console.log(countriesGet.value)
 </script>

@@ -1,4 +1,5 @@
 import './assets/main.css'
+export const url = 'http://nkdskpc-m1.wsr.ru/api-shop'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -12,3 +13,4 @@ app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
+
