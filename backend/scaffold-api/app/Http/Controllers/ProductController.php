@@ -8,6 +8,9 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function test(){
+        return response()->json(['hi'=>'suka'], 200);
+    }
     public function index(){
         return response()->json(Product::all(), 200);
     }
@@ -42,7 +45,7 @@ class ProductController extends Controller
         }
         $product->delete();
 
-        return response()->json(['message'=>'Product delete successfully']. 200);
+        return response()->json(['message'=>'Product delete successfully'], 200);
     }
 
     public function show($id){

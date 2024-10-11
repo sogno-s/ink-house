@@ -10,7 +10,8 @@ class Category extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    public function products(){
-        return $this->hasMany(Product::class);
+    public function category(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Category::class);
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
@@ -13,9 +14,10 @@ class CategoryController extends Controller
         return response()->json(Category::all(), 200);
     }
 
-    public function addCategory(Request $request){
+    public function store(Request $request){
+        //Log::info('addCategory Вызывается ');
         $this->validate($request, [
-           'name'=>'required|string|max:255',
+            'name'=>'required|string|max:255',
         ]);
         $category = Category::create($request->all());
         return response()->json($category, 201);
@@ -28,7 +30,7 @@ class CategoryController extends Controller
         }
         $category->delete();
 
-        return response()->json(['message'=>'Category deleted successfully']. 200);
+        return response()->json(['message'=>'Category deleted successfully'], 200);
     }
 
     public function showProductInCategory($id){
