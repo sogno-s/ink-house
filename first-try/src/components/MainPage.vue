@@ -28,7 +28,7 @@ import {url} from "../main.js";
 
 const categories = ref([]);
 onMounted(async ()=> {
-    await  axios.get(`${url}/products/categories'`)
+    await  axios.get(`${url}/products/categories`)
         .then(response=>{
           categories.value = response.data;
         })

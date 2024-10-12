@@ -3,7 +3,7 @@
 import {computed} from "vue";
 
 const props = defineProps({
-  countries: {
+    countries: {
     type: Object,
     required: true
   }
@@ -11,7 +11,7 @@ const props = defineProps({
 
 console.log(props)
 
-const countryGet = computed(()=> props.countries.country)
+const countryGet = computed(()=> props.countries.name)
 
 // const temp = 'temp'
 
@@ -19,7 +19,6 @@ const countryGet = computed(()=> props.countries.country)
 
 <template>
       <input type="button" :value="countryGet">
-
 
 </template>
 

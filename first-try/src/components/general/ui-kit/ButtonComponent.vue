@@ -1,6 +1,6 @@
 <template>
 
-    <button>В корзину</button>
+    <button>{{tittle}}</button>
 
 </template>
 
@@ -26,5 +26,16 @@ button:active{
 
 </style>
 <script setup>
+
+  import {computed} from "vue";
+
+  const props = defineProps({
+    titleBtn: {
+      type: String,
+      required: true
+    }
+  })
+
+  const tittle = computed(()=>props.titleBtn)
 
 </script>

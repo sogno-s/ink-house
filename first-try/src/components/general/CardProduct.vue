@@ -10,7 +10,7 @@
       <p>{{ price }}</p>
     </div>
     <div class="btn">
-      <ButtonComponent/>
+      <ButtonComponent title-btn="В корзину"/>
     </div>
   </div>
 </template>

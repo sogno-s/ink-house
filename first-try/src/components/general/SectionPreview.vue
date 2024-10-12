@@ -1,4 +1,5 @@
 <template>
+  <div class="content">
     <div class="img">
         <img alt="bird" src="/img/bird.png">
     </div>
@@ -6,9 +7,11 @@
         <h2>Реплики картин от <text>Ink. House</text></h2>
         <p>Высокое качество отрисовки на плотной бумаге или льняном холсте. Редкие произведения, доступные цены.</p>
         <div class="btn">
-            <ButtonComponent />
+            <ButtonComponent title-btn="Перейти" />
         </div>
     </div>
+
+  </div>
 </template>
 
 <script setup>
@@ -16,6 +19,13 @@
 </script>
 
 <style scoped>
+
+.content{
+  display: flex;
+  z-index: -9999;
+  align-items: center;
+}
+
     .img{
         width: 25rem;
       z-index: 1;
