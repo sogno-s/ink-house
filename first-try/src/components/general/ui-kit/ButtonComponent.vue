@@ -1,6 +1,6 @@
 <template>
 
-    <button>{{tittle}}</button>
+    <button @click="$emit('click')">{{title}}</button>
 
 </template>
 
@@ -40,10 +40,6 @@ button:active{
     }
   })
 
-  const tittle = computed(()=>props.titleBtn)
-  const method = computed(()=> props.methodRequest)
+  const title = computed(()=>props.titleBtn)
 
-  if (method === 'loginUser'){
-    //
-  }
 </script>

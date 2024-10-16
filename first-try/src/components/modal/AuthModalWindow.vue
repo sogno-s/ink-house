@@ -1,44 +1,65 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 import ButtonComponent from "../general/ui-kit/ButtonComponent.vue";
+import loginUser from "../../requests/authRequest.js";
+import { useRouter } from "vue-router";
 
 const emit = defineEmits(['close']);
+const router = useRouter();
 
 const props = defineProps({
   isVisible: {
     type: Boolean,
-    required:true,
+    required: true,
   },
-})
+});
 
-// const titleBtn = 'Войти'
+const email = ref('');
+const password = ref('');
+const methodRequest = ref('loginUser');
 
-const email = ref('')
-const password = ref('')
+const closeModal = () => {
+  emit('close');
+};
 
-const closeModal = () =>{
-  emit('close')
+function redirect() {
+  router.push({ name: 'catalog' });
 }
+
+const handleSubmit = () => {
+  console.log('Email:', email.value);
+  console.log('Password:', password.value);
+  if (methodRequest.value === 'loginUser') {
+    loginUser(email.value, password.value)
+        .then(data => {
+          console.log('Вход пользователя ', data);
+          redirect();
+        })
+        .catch(err => {
+          console.error('Ошибка входа:', err);
+        });
+  }
+};
 </script>
 
 <template>
   <div v-if="isVisible" class="modal-overlay" @click="closeModal">
     <div class="modal-content" @click.stop>
       <h2>Вход</h2>
-      <form>
+      <form @submit.prevent="handleSubmit">
         <div class="content">
-          <label>Адрес электронной почты</label>
+          <label for="email">Адрес электронной почты</label>
           <input placeholder="example@example.com" type="email" id="email"  v-model="email">
         </div>
         <div class="content">
-          <label>Пароль</label>
-          <input placeholder="*********" type="password" id="password" v-model="password">
+          <label for="password">Пароль</label>
+          <input placeholder="*********" type="password"  id="password" v-model="password">
         </div>
         <div class="btn">
-          <ButtonComponent title-btn="Войти" />
+          <ButtonComponent :method-request="methodRequest" @click="handleSubmit" title-btn="Войти" />
         </div>
       </form>
-      <button class="none" @click="closeModal">Закрыть</button>
+
     </div>
   </div>
 </template>
@@ -73,23 +94,31 @@ const closeModal = () =>{
   }
 
   h2{
+    position: relative;
     text-align: center;
-    text-decoration: underline #0b2e13;
-    text-underline-offset: 1rem;
     width: 20rem;
   }
-
+  h2::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.5rem; /* отступ подчеркивания от текста */
+    width: 17rem; /* длина подчеркивания */
+    height: 2px; /* толщина линии */
+    background-color: #2e7740; /* цвет линии */
+  }
   .btn{
-    width: 15rem;
-    height: 1.8rem;
+    width: 17rem;
+    height: 3rem;
   }
 
   .content{
     display: flex;
     flex-direction: column;
-
     gap: 1rem;
-    max-width: 30rem;
+    width: 17rem;
   }
 
   .modal-content form{
@@ -99,18 +128,43 @@ const closeModal = () =>{
   }
 
   input{
-    height: 1.9rem;
+    height: 2.5rem;
     border-radius: 5px;
+    transition: border-color 1s ease;
     outline: none;
-    border-color: transparent;
+    border: 2px solid transparent;
     padding: 5px;
   }
   input::placeholder{
     color: #376B44;
   }
+  input:hover{
+    animation: hover-animate 2s forwards ;
+  }
 
-  .none{
-    display: none;
+  input:active{
+    border-color: #11591e;
+  }
+  input:focus{
+    border-color: #11591e;
+  }
+
+  @keyframes hover-animate {
+    0%{
+      border-color: #7a917f;
+    }
+    25%{
+      border-color: #659670;
+    }
+    50%{
+      border-color: #4c9159;
+    }
+    75%{
+      border-color: #286233;
+    }
+    100%{
+      border-color: #11591e;
+    }
   }
 
 </style>
