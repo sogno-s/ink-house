@@ -33,9 +33,17 @@ button:active{
     titleBtn: {
       type: String,
       required: true
+    },
+    methodRequest: {
+      type: String,
+      required: false
     }
   })
 
   const tittle = computed(()=>props.titleBtn)
+  const method = computed(()=> props.methodRequest)
 
+  if (method === 'loginUser'){
+    //
+  }
 </script>

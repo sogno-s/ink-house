@@ -28,7 +28,7 @@ const closeModal = () =>{
       <form>
         <div class="content">
           <label>Адрес электронной почты</label>
-          <input placeholder="example@example.com" type="email" id="email" v-model="email">
+          <input placeholder="example@example.com" type="email" id="email"  v-model="email">
         </div>
         <div class="content">
           <label>Пароль</label>
@@ -38,7 +38,7 @@ const closeModal = () =>{
           <ButtonComponent title-btn="Войти" />
         </div>
       </form>
-      <button @click="closeModal">Закрыть</button>
+      <button class="none" @click="closeModal">Закрыть</button>
     </div>
   </div>
 </template>
@@ -62,12 +62,12 @@ const closeModal = () =>{
   .modal-content{
     display: flex;
     flex-direction: column;
-    gap: 5rem;
+    gap: 3rem;
     width: 25rem;
     height: 35rem;
     background: #D4E8D9;
     z-index: 10000;
-    border-radius: 5px;
+    border-radius: 15px;
     align-items: center;
     justify-content: center;
   }
@@ -88,7 +88,7 @@ const closeModal = () =>{
     display: flex;
     flex-direction: column;
 
-    gap: 6px;
+    gap: 1rem;
     max-width: 30rem;
   }
 
@@ -107,6 +107,10 @@ const closeModal = () =>{
   }
   input::placeholder{
     color: #376B44;
+  }
+
+  .none{
+    display: none;
   }
 
 </style>

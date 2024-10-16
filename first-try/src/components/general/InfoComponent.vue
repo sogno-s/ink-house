@@ -5,6 +5,7 @@ import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vu
 <template>
   <div class="background">
     <div class="content">
+
       <h2>Новая коллекция французских авторов</h2>
       <p>Сложно сказать, почему акционеры крупнейших компаний призывают нас к новым свершениям, которые, в свою очередь, должны быть заблокированы в рамках своих собственных рациональных ограничений. </p>
       <p>Принимая во внимание показатели успешности, граница обучения кадров предопределяет высокую востребованность направлений прогрессивного развития.</p>
@@ -30,6 +31,7 @@ import ButtonComponentAdditionally from "./ui-kit/ButtonComponentAdditionally.vu
     height: 35rem;
     overflow: hidden;
     padding-left: 8rem;
+    z-index: -9999;
   }
   .background::before{
     content: "";
