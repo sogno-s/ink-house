@@ -1,5 +1,5 @@
 import './assets/main.css'
-export const url = 'http://nkdskpc-m1.wsr.ru/api-shop'
+export const url = 'http://my/api-shop'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

@@ -1,7 +1,8 @@
 import axios from "axios";
 import {url} from "../main.js";
 
-const loginUser = async (email, password) => {
+export const loginUser = async (email, password) => {
+        console.log('первый вызов');
         return  await axios.post(`${url}/login`, {
             email,
             password

@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import AppPage from '../App.vue'
+import MainPage from '../components/MainPage.vue'
 import AuthModalWindow from "../components/modal/AuthModalWindow.vue";
-const router = createRouter({
-  history: createWebHistory('/'),
+import TestComponent from "../components/TestPage.vue";
 
+const router = createRouter({
   routes: [
     { 
       path: '/',
-      component: AppPage
+      name: 'MainPage',
+      component: MainPage
     },
     {
       path: '/login',
@@ -16,9 +17,11 @@ const router = createRouter({
     {
       path: '/catalog',
       name: 'catalog',
-      component: () => import('../components/TestPage.vue')
+      component: TestComponent
     }
-  ]
+  ],
+
+  history: createWebHistory()
 })
 
 export default router

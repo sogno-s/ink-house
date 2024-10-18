@@ -26,13 +26,18 @@ const props = defineProps({
   }
 })
 
-const img = computed(() => props.cards.img)
-const imgSource = computed(() => `/img/${img.value}`)
+let img = null
+const imgSource = computed(() => img);
 const author = computed(() => props.cards.author);
 const title = computed(() => props.cards.title);
 const description = computed(() => props.cards.description);
 const price = computed(() => props.cards.price);
 
+if (props.cards.linkToImage === null){
+  img = 'img/notloaded.jpg'
+}else{
+  img = computed(()=> props.cards.linkToImage);
+}
 
 </script>
 

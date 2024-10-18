@@ -34,6 +34,7 @@ const handleSubmit = () => {
         .then(data => {
           console.log('Вход пользователя ', data);
           redirect();
+          closeModal()
         })
         .catch(err => {
           console.error('Ошибка входа:', err);
@@ -56,7 +57,7 @@ const handleSubmit = () => {
           <input placeholder="*********" type="password"  id="password" v-model="password">
         </div>
         <div class="btn">
-          <ButtonComponent :method-request="methodRequest" @click="handleSubmit" title-btn="Войти" />
+          <ButtonComponent :method-request="methodRequest"  title-btn="Войти" />
         </div>
       </form>
 

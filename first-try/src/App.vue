@@ -12,10 +12,10 @@ import MainPage from './components/MainPage.vue'
   
   <main class="main">
     <section>
-      <MainPage/>
-      </section>
-      </main>
-  <RouterView />
+      <RouterView />
+    </section>
+  </main>
+<!--  <RouterView />-->
 </template>
 
 <style scoped>
@@ -36,5 +36,4 @@ import MainPage from './components/MainPage.vue'
     margin: 0 auto;
   }
 
-  
 </style>

@@ -16,6 +16,7 @@
 import {ref} from "vue";
 import AuthModalWindow from "../components/modal/AuthModalWindow.vue";
 
+console.log('HeaderComponent rendered')
 
 const isModalVisible = ref(false);
 
