@@ -3,6 +3,7 @@ import { ref } from "vue";
 import ButtonComponent from "../general/ui-kit/ButtonComponent.vue";
 import loginUser from "../../requests/authRequest.js";
 import { useRouter } from "vue-router";
+import ErrorPopup from "../modal/ErrorPopup.vue";
 
 const emit = defineEmits(['close']);
 const router = useRouter();
@@ -17,6 +18,7 @@ const props = defineProps({
 const email = ref('');
 const password = ref('');
 const methodRequest = ref('loginUser');
+const errorMessage = ref('');
 
 const closeModal = () => {
   emit('close');
@@ -37,6 +39,8 @@ const handleSubmit = () => {
           closeModal()
         })
         .catch(err => {
+
+          errorMessage.value = 'Неверный email или пароль';
           console.error('Ошибка входа:', err);
         });
   }
@@ -60,7 +64,7 @@ const handleSubmit = () => {
           <ButtonComponent :method-request="methodRequest"  title-btn="Войти" />
         </div>
       </form>
-
+      <ErrorPopup v-if="errorMessage" :message="errorMessage"/>
     </div>
   </div>
 </template>
